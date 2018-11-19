@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean showResult;
 
     //listener for digits, add the value of the button to the current result and enable operations buttons
-    private View.OnClickListener digitListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+
+
+    private View.OnClickListener digitListener = v -> {
 
             String buttonValue = ((Button)v).getText().toString();
 
@@ -37,13 +37,11 @@ public class MainActivity extends AppCompatActivity {
             buttonPlus.setEnabled(true);
             buttonTimes.setEnabled(true);
             buttonDivide.setEnabled(true);
-        }
-    };
+        };
+
 
     //listener for the dot, add the dot to the current result, disable operations buttons and itself
-    private View.OnClickListener dotListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+    private View.OnClickListener dotListener =  v -> {
 
             String buttonValue = ((Button)v).getText().toString();
 
@@ -55,13 +53,11 @@ public class MainActivity extends AppCompatActivity {
             buttonTimes.setEnabled(false);
             buttonDivide.setEnabled(false);
             buttonEquals.setEnabled(false);
-        }
-    };
+        };
+
 
     //listener for equals
-    private View.OnClickListener equalsListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+    private View.OnClickListener equalsListener =  v -> {
 
             float currentValue = Float.parseFloat(result.getText().toString());
 
@@ -90,13 +86,10 @@ public class MainActivity extends AppCompatActivity {
 
             previousResult = 0;
             showResult = true;
-        }
-    };
+        };
 
     //listener for operations
-    private View.OnClickListener operationListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
+    private View.OnClickListener operationListener =  v -> {
 
             float currentResult = Float.parseFloat(result.getText().toString());
 
@@ -135,13 +128,12 @@ public class MainActivity extends AppCompatActivity {
             
             buttonDot.setEnabled(true);
             result.setText("0");
-        }
-    };
+        };
 
     private View.OnClickListener onClickButtonInfo = v -> {
 
                 Intent intent = new Intent(MainActivity.this,InfoActivity.class);
-                MainActivity.this.startActivity(intent);
+                this.startActivity(intent);
         };
 
 
@@ -189,8 +181,6 @@ public class MainActivity extends AppCompatActivity {
         buttonDivide.setOnClickListener(operationListener);
         buttonDot.setOnClickListener(dotListener);
         buttonInfo.setOnClickListener(onClickButtonInfo);
-
-
 
     }
 }
