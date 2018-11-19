@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private float previousResult;
     private boolean showResult;
 
-
+    //listener for digits, add the value of the button to the current result and enable operations buttons
     private View.OnClickListener digitListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    //listener for the dot, add the dot to the current result, disable operations buttons and itself
     private View.OnClickListener dotListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    //listener for equals
     private View.OnClickListener equalsListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    //listener for operations
     private View.OnClickListener operationListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -129,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         buttonDigit0 = findViewById(R.id.button_digit0);
         buttonDigit1 = findViewById(R.id.button_digit1);
         buttonDigit2 = findViewById(R.id.button_digit2);
@@ -148,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
         result = findViewById(R.id.textView_result);
 
 
+        //setting the listener on each button
         buttonDigit0.setOnClickListener(digitListener);
         buttonDigit1.setOnClickListener(digitListener);
         buttonDigit2.setOnClickListener(digitListener);
