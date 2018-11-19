@@ -1,6 +1,7 @@
 package com.example.formation2.firstappandroid;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private String currentOperation;
     private float previousResult;
     private boolean showResult;
+    private final String CURRENT_RESULT_KEY = "currentResult";
+    private final String PREVIOUS_RESULT_KEY = "previousResult";
+    private final String OPERATION_KEY = "operation";
 
     //listener for digits, add the value of the button to the current result and enable operations buttons
 
@@ -127,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
             }
             
             buttonDot.setEnabled(true);
+            buttonEquals.setEnabled(true);
             result.setText("0");
         };
 
@@ -136,6 +141,15 @@ public class MainActivity extends AppCompatActivity {
                 this.startActivity(intent);
         };
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        String currentResult = result.getText().toString();
+        outState.putString(CURRENT_RESULT_KEY,currentResult);
+        outState.putFloat(PREVIOUS_RESULT_KEY,previousResult);
+        outState.putString(OPERATION_KEY,currentOperation);
+        Log.i("ROTATION","RECUPERATION RESULTAT");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,6 +177,13 @@ public class MainActivity extends AppCompatActivity {
         buttonInfo = findViewById(R.id.button_info);
 
 
+        if(savedInstanceState!=null){
+            result.setText(savedInstanceState.getString(CURRENT_RESULT_KEY));
+            currentOperation = savedInstanceState.getString(OPERATION_KEY);
+            previousResult = savedInstanceState.getFloat(PREVIOUS_RESULT_KEY);
+
+        }
+
         //setting the listener on each button
         buttonDigit0.setOnClickListener(digitListener);
         buttonDigit1.setOnClickListener(digitListener);
@@ -181,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         buttonDivide.setOnClickListener(operationListener);
         buttonDot.setOnClickListener(dotListener);
         buttonInfo.setOnClickListener(onClickButtonInfo);
+        buttonEquals.setEnabled(false);
 
     }
 }
