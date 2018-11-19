@@ -1,5 +1,6 @@
 package com.example.formation2.firstappandroid;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonDigit0, buttonDigit1, buttonDigit2, buttonDigit3, buttonDigit4, buttonDigit5, buttonDigit6, buttonDigit7, buttonDigit8, buttonDigit9;
     private Button buttonEquals, buttonDot, buttonTimes, buttonPlus, buttonMinus, buttonDivide;
+    private Button buttonInfo;
     private TextView result;
     private String currentOperation;
     private float previousResult;
@@ -20,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener digitListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             String buttonValue = ((Button)v).getText().toString();
+
             if(result.getText().equals("0") || showResult ) {
                 result.setText(buttonValue);
                 showResult = false;
@@ -40,8 +44,11 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener dotListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             String buttonValue = ((Button)v).getText().toString();
+
             result.append(buttonValue);
+
             buttonDot.setEnabled(false);
             buttonPlus.setEnabled(false);
             buttonMinus.setEnabled(false);
@@ -55,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener equalsListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             float currentValue = Float.parseFloat(result.getText().toString());
 
             if(currentOperation.equals("+")){
@@ -89,7 +97,9 @@ public class MainActivity extends AppCompatActivity {
     private View.OnClickListener operationListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+
             float currentResult = Float.parseFloat(result.getText().toString());
+
             if(previousResult != 0) {
                 if(currentOperation.equals("+")) {
                     previousResult += currentResult;
@@ -127,6 +137,14 @@ public class MainActivity extends AppCompatActivity {
             result.setText("0");
         }
     };
+
+    private View.OnClickListener onClickButtonInfo = v -> {
+
+                Intent intent = new Intent(MainActivity.this,InfoActivity.class);
+                MainActivity.this.startActivity(intent);
+        };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -150,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
         buttonEquals = findViewById(R.id.button_equals);
         buttonDot = findViewById(R.id.button_dot);
         result = findViewById(R.id.textView_result);
+        buttonInfo = findViewById(R.id.button_info);
 
 
         //setting the listener on each button
@@ -169,6 +188,9 @@ public class MainActivity extends AppCompatActivity {
         buttonTimes.setOnClickListener(operationListener);
         buttonDivide.setOnClickListener(operationListener);
         buttonDot.setOnClickListener(dotListener);
+        buttonInfo.setOnClickListener(onClickButtonInfo);
+
+
 
     }
 }

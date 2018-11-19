@@ -14,6 +14,11 @@
         android:layout_margin="10dp"
         android:textSize="25sp"
         android:textAlignment="viewEnd"/>
+    <Button
+        android:id="@+id/button_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="INFO"/>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -22,128 +27,137 @@
         android:rowCount="4">
 
         //premiere colonne
+
         <Button
             android:id="@+id/button_digit7"
             android:layout_row="0"
-            android:layout_column="0"
-            android:text="7"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:text="7" />
 
         <Button
             android:id="@+id/button_digit4"
             android:layout_row="1"
-            android:layout_column="0"
-            android:text="4"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:text="4" />
 
         <Button
             android:id="@+id/button_digit1"
             android:layout_row="2"
-            android:layout_column="0"
-            android:text="1"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:text="1" />
 
         <Button
             android:id="@+id/button_equals"
             android:layout_row="3"
-            android:layout_column="0"
-            android:text="="
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:text="=" />
         //deuxieme colonne
+
         <Button
             android:id="@+id/button_digit8"
             android:layout_row="0"
-            android:layout_column="1"
-            android:text="8"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:text="8" />
 
         <Button
             android:id="@+id/button_digit5"
             android:layout_row="1"
-            android:layout_column="1"
-            android:text="5"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:text="5" />
 
         <Button
             android:id="@+id/button_digit2"
             android:layout_row="2"
-            android:layout_column="1"
-            android:text="2"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:text="2" />
 
         <Button
             android:id="@+id/button_digit0"
             android:layout_row="3"
-            android:layout_column="1"
-            android:text="0"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:text="0" />
         //troisieme colonne
+
         <Button
             android:id="@+id/button_digit9"
             android:layout_row="0"
-            android:layout_column="2"
-            android:text="9"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:text="9" />
+
         <Button
             android:id="@+id/button_digit6"
             android:layout_row="1"
-            android:layout_column="2"
-            android:text="6"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:text="6" />
+
         <Button
             android:id="@+id/button_digit3"
             android:layout_row="2"
-            android:layout_column="2"
-            android:text="3"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:text="3" />
+
         <Button
             android:id="@+id/button_dot"
             android:layout_row="3"
-            android:layout_column="2"
-            android:text="."
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="2"
+            android:layout_columnWeight="1"
+            android:text="." />
         //quatrieme colonne
+
         <Button
             android:id="@+id/button_times"
             android:layout_row="0"
-            android:layout_column="3"
-            android:text="*"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:text="*" />
+
         <Button
             android:id="@+id/button_minus"
             android:layout_row="1"
-            android:layout_column="3"
-            android:text="-"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:text="-" />
+
         <Button
             android:id="@+id/button_plus"
             android:layout_row="2"
-            android:layout_column="3"
-            android:text="+"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:text="+" />
+
         <Button
             android:id="@+id/button_divide"
             android:layout_row="3"
-            android:layout_column="3"
-            android:text="/"
             android:layout_rowWeight="1"
-            android:layout_columnWeight="1"/>
+            android:layout_column="3"
+            android:layout_columnWeight="1"
+            android:text="/" />
     </GridLayout>
-
 
 </LinearLayout>
